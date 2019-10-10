@@ -1,0 +1,45 @@
+﻿@page
+@model KenJP2._0.Pages.Dino.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Dinosaurs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Dinosaurs.DID" />
+            <div class="form-group">
+                <label asp-for="Dinosaurs.Diet" class="control-label"></label>
+                <input asp-for="Dinosaurs.Diet" class="form-control" />
+                <span asp-validation-for="Dinosaurs.Diet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dinosaurs.Territory" class="control-label"></label>
+                <input asp-for="Dinosaurs.Territory" class="form-control" />
+                <span asp-validation-for="Dinosaurs.Territory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dinosaurs.EID" class="control-label"></label>
+                <select asp-for="Dinosaurs.EID" class="form-control" asp-items="ViewBag.EID"></select>
+                <span asp-validation-for="Dinosaurs.EID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

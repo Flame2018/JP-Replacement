@@ -1,0 +1,48 @@
+﻿@page
+@model KenJP2._0.Pages.Dino.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dinosaurs[0].Diet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dinosaurs[0].Territory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dinosaurs[0].ExID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dinosaurs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Territory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExID.EID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
